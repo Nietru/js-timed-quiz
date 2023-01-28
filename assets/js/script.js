@@ -1,14 +1,14 @@
 
-function init() {
-    getCorrect();
-    getIncorrect();
-}
+// function init() {
+//     getCorrect();
+//     getIncorrect();
+// }
 
-function startTest() {
-    isCorrect = false;
-    timerCount = 60;
-    startButton.disabled = true;
-    startTimer()
-}
+// function startTest() {
+//     isCorrect = false;
+//     timerCount = 60;
+//     startButton.disabled = true;
+//     startTimer()
+// }
 
-startButton.addEventListener("click", startTest);
+// startButton.addEventListener("click", startTest);

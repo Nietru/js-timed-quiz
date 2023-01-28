@@ -12,37 +12,40 @@
 <body>
     
     <header>
-      <div class= "main-header">Javascript Fundamentals Quiz (TIMED!)</div>
-      <button class="start-button">Start</button>
+      <div class= "main-header">
+        <h1>Javascript Fundamentals Quiz (TIMED!)</h1>
+        <div class="start-button"><button>Start Quiz!</button></div>  <!--Start Quiz button-->
+      </div>
     </header>
 
     <main>
       <section>
-        <div class="card options">
-          <div class="large-font options">
+        <div class="container">
+          <div class="possible-choices">
             <ul>
-                <li>option 1</li>
-                <li>option 2</li>
-                <li>option 3</li>
-                <li>option 4</li>
+              <li><button class="possible-choice1">option 1</button></li>
+              <li><button class="possible-choice2">option 2</button></li>
+              <li><button class="possible-choice3">option 3</button></li>
+              <li><button class="possible-choice4">option 4</button></li>
             </ul>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="card results">
+        <div class="results">
           <div class = "correct-incorrect-container">
 
             <div class = "correct"></div>
             <div class = "incorrect"></div>
 
-          <button class="reset-button">Test Again</button>
+          <div class="reset-button"><button>Mulligan!</button></div>
+          <div class="quit-button"><button>Quit</button></div>
       </div>
-          <div class= "card timer">
+          <div class= "timer">
             <div class = "timer-text">
             <div class="main-header timer-count">10</div>
-            <h3>seconds remaining</h3>
+            <h3>second(s) remaining...</h3>
           </div>
         
           </div>
@@ -50,6 +53,6 @@
       </section>
     </main>
 
-    <script src = "assets/js/script.js"></script>
+  <script src = "assets/js/script.js"></script>
 </body>
 </html>

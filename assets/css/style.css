@@ -1,3 +1,42 @@
+/* color palette sourced from: https://coolors.co/404e4d-63595c-646881-62bec1-5ad2f4 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'arial', 'sans-serif';
+}
+
+:root {
+    --darkclr: #404e4d;
+    --actionbtn: #5AD2F4;
+    --actfont: #646881;
+    --btnborder: 7px;
+    --btnpaddinglg: 10px;   /* for start, redo, and quit buttons */
+    --btnpaddingsm: 5px;    /* for the answer options buttons */
+}
+
 body {
-    background-color: blue;
+    background: var(--darkclr);
+}
+
+/* start button styling and positioning */
+.start-button {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+}
+
+.start-button button {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--actfont);
+    background-color: var(--actionbtn);
+    border-radius: var(--btnborder);
+    padding: var(--btnpaddinglg);
+}
+
+.possible-choices {
+    display: inline-block;
+    margin: 20px;
+    background-color: black;
 }
