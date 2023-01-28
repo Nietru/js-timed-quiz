@@ -13,42 +13,45 @@
     
     <header>
       <div class= "main-header">
-        <h1>Javascript Fundamentals Quiz (TIMED!)</h1>
+      <h1>Javascript Fundamentals Quiz (TIMED!)</h1>
         <div class="start-button"><button>Start Quiz!</button></div>  <!--Start Quiz button-->
+        <div id= "timer">
+          <div class = "timer-text">
+            <div class="main-header timer-count">10</div>
+            <h3>second(s) remaining...</h3>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
-      <section>
-        <div class="container">
-          <div class="possible-choices">
-            <ul>
-              <li><button class="possible-choice1">option 1</button></li>
-              <li><button class="possible-choice2">option 2</button></li>
-              <li><button class="possible-choice3">option 3</button></li>
-              <li><button class="possible-choice4">option 4</button></li>
-            </ul>
-          </div>
+      <section id="section-1">
+        <h2>Please Choose One Answer: </h2>
+          <div id="possible-choices">
+          <ul>
+            <li><button class="choice possible-choice1">option 1 fhjdiwoajnfidwoahnjfidwsohbn</button></li>
+            <li><button class="choice possible-choice2">option 2 jfdikasofhdiosafhndisoahnfido</button></li>
+            <li><button class="choice possible-choice3">option 3 fjdnisoapfhdiosahnfoihndfsiahfjdio</button></li>
+            <li><button class="choice possible-choice4">option 4</button></li>
+          </ul>
         </div>
       </section>
 
-      <section>
-        <div class="results">
+      <section id="section-2">
+        <div id="results">
           <div class = "correct-incorrect-container">
 
             <div class = "correct"></div>
             <div class = "incorrect"></div>
 
+          </div>
+        </div>
+      </section>
+
+      <section id="section-3">
+        <div class="bottom-buttons">
           <div class="reset-button"><button>Mulligan!</button></div>
           <div class="quit-button"><button>Quit</button></div>
-      </div>
-          <div class= "timer">
-            <div class = "timer-text">
-            <div class="main-header timer-count">10</div>
-            <h3>second(s) remaining...</h3>
-          </div>
-        
-          </div>
         </div>
       </section>
     </main>

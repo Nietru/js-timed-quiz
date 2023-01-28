@@ -8,35 +8,88 @@
 
 :root {
     --darkclr: #404e4d;
+    --whtclr: whitesmoke;
     --actionbtn: #5AD2F4;
     --actfont: #646881;
-    --btnborder: 7px;
+    --btnborderRd: 7px;
     --btnpaddinglg: 10px;   /* for start, redo, and quit buttons */
     --btnpaddingsm: 5px;    /* for the answer options buttons */
+    --btncursor: pointer;
+}
+
+.main-header {
+    color: var(--whtclr);
+    text-align: center;
+}
+
+.timer-count {
+    color: red;
+    font-size: 26px;
+    font-weight: 900;
 }
 
 body {
     background: var(--darkclr);
-}
-
-/* start button styling and positioning */
-.start-button {
-    position: absolute;
-    top: 20%;
-    left: 50%;
+    text-align: center;
+    color: var(--whtclr);
 }
 
 .start-button button {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
+    margin: 2%;
     color: var(--actfont);
     background-color: var(--actionbtn);
-    border-radius: var(--btnborder);
+    border-radius: var(--btnborderRd);
     padding: var(--btnpaddinglg);
+    cursor: var(--btncursor);
 }
 
-.possible-choices {
+/* container for answer choices */
+#section-1 {
     display: inline-block;
-    margin: 20px;
+    padding: 3%;
     background-color: black;
+    border: 2px solid var(--whtclr);
+    border-radius: var(--btnborderRd);
+}
+
+/* each possible answer button */
+#section-1 ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-align: left;
+    margin: 10%;
+}
+
+.choice {
+    background: #63595C;
+    margin: 2%;
+    padding: 5%;
+    cursor: var(--btncursor);
+}
+
+#section-3 {
+    display: inline-block;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-bottom-left-radius: var(--btnborderRd);
+    border-bottom-right-radius: var(--btnborderRd);
+}
+
+.bottom-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.bottom-buttons button {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    color: var(--actfont);
+    background-color: var(--actionbtn);
+    border-radius: var(--btnborderRd);
+    padding: var(--btnpaddinglg);
+    cursor: var(--btncursor);
 }
