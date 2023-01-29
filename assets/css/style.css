@@ -12,20 +12,14 @@
     --actionbtn: #5AD2F4;
     --actfont: #646881;
     --btnborderRd: 7px;
-    --btnpaddinglg: 10px;   /* for start, redo, and quit buttons */
+    --btnpaddinglg: 10px;   /* for large start, redo, and quit buttons */
     --btnpaddingsm: 5px;    /* for the answer options buttons */
     --btncursor: pointer;
 }
 
-.main-header {
+#main-header {
     color: var(--whtclr);
     text-align: center;
-}
-
-.timer-count {
-    color: red;
-    font-size: 26px;
-    font-weight: 900;
 }
 
 body {
@@ -34,7 +28,7 @@ body {
     color: var(--whtclr);
 }
 
-.start-button button {
+#start-button button {
     font-size: 30px;
     font-weight: bold;
     margin: 2%;
@@ -55,7 +49,7 @@ body {
 }
 
 /* each possible answer button */
-#section-1 ul {
+#answer-choices {
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -70,7 +64,7 @@ body {
     cursor: var(--btncursor);
 }
 
-#section-3 {
+#main-footer{
     display: inline-block;
     padding: 20px;
     margin-bottom: 40px;
@@ -78,12 +72,12 @@ body {
     border-bottom-right-radius: var(--btnborderRd);
 }
 
-.bottom-buttons {
+#button-container {
     display: flex;
     flex-direction: row;
 }
 
-.bottom-buttons button {
+#button-container button {
     font-size: 30px;
     font-weight: bold;
     margin: 10px;

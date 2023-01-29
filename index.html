@@ -12,48 +12,42 @@
 <body>
     
     <header>
-      <div class= "main-header">
-      <h1>Javascript Fundamentals Quiz (TIMED!)</h1>
-        <div class="start-button"><button>Start Quiz!</button></div>  <!--Start Quiz button-->
-        <div id= "timer">
-          <div class = "timer-text">
-            <div class="main-header timer-count">10</div>
-            <h3>second(s) remaining...</h3>
-          </div>
+      <div id= "main-header">
+      <h1>Javascript Fundamentals Quiz (TIMED!)</h1>    <!--main title-->
+        <div id="start-button"><button>Start Quiz!</button></div>  <!--Start Quiz button-->
+        <div id= "timer-container">
+            <h4 class="timer-text"><span id= "time">00</span> second(s) remaining...</h4>
         </div>
       </div>
     </header>
 
     <main>
       <section id="section-1">
-        <h2>Please Choose One Answer: </h2>
-          <div id="possible-choices">
-          <ul>
-            <li><button class="choice possible-choice1">option 1 fhjdiwoajnfidwoahnjfidwsohbn</button></li>
-            <li><button class="choice possible-choice2">option 2 jfdikasofhdiosafhndisoahnfido</button></li>
-            <li><button class="choice possible-choice3">option 3 fjdnisoapfhdiosahnfoihndfsiahfjdio</button></li>
-            <li><button class="choice possible-choice4">option 4</button></li>
-          </ul>
+        <h3 id = "question">Question</h3>
+        <h5>Please Choose One Answer: </h5>
+          <div id="answer-choices">
+            <button class="choice" id="possible-choice1">option 1 fhjdiwoajnfidwoahnjfidwsohbn</button>
+            <button class="choice" id="possible-choice2">option 2 jfdikasofhdiosafhndisoahnfido</button>
+            <button class="choice" id="possible-choice3">option 3 fjdnisoapfhdiosahnfoihndfsiahfjdio</button>
+            <button class="choice" id="possible-choice4">option 4 blablalblahfdiowgfdsagsdffrewfg</button>
         </div>
       </section>
-
       <section id="section-2">
-        <div id="results">
+        <!-- <div id="results">
           <div class = "correct-incorrect-container">
 
             <div class = "correct"></div>
             <div class = "incorrect"></div>
 
           </div>
-        </div>
+        </div> -->
       </section>
-
-      <section id="section-3">
-        <div class="bottom-buttons">
+      <footer id="main-footer">
+        <div id="button-container">
           <div class="reset-button"><button>Mulligan!</button></div>
           <div class="quit-button"><button>Quit</button></div>
         </div>
-      </section>
+      </footer>
     </main>
 
   <script src = "assets/js/script.js"></script>
