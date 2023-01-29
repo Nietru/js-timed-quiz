@@ -72,13 +72,19 @@ body {
     border-bottom-right-radius: var(--btnborderRd);
 }
 
-#button-container {
+.prev-next {
+    font-size: 18px;
+    margin: 4%;
+    padding: 2%;
+}
+
+#bottom-buttons {
     display: flex;
     flex-direction: row;
 }
 
-#button-container button {
-    font-size: 30px;
+#bottom-buttons button {
+    font-size: 20px;
     font-weight: bold;
     margin: 10px;
     color: var(--actfont);
