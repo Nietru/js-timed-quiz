@@ -10,19 +10,29 @@
 </head>
 
 <body>
-    
+    <!--Main Title on page-->
     <header>
       <div id="main-header">
-      <h1>Javascript Fundamentals Quiz (TIMED!)</h1>    <!--main title-->
-        <div id="start-button"><button>Start Quiz!</button></div>  <!--Start Quiz button-->
-        <div id="timer-container">
-            <h4 class="timer-text"><span id="time">00</span> second(s) remaining...</h4>
-        </div>
+      <h1>Javascript Fundamentals Quiz (TIMED!)</h1>
+        <!--Start Quiz action button-->
+        <div id="start-button"><button>Start Quiz!</button></div>
       </div>
     </header>
 
     <main>
+      <!--The high score section-->
       <section id="section-1">
+        <div id="score-container">
+          <h4 class="high-scores"><span id="high-scores">High Scores</span></h4>
+        </div>
+        <!-- The timer/countdown section-->
+        <div id="timer-container">
+          <h4 class="timer-text"><span id="time">00</span> second(s) remaining...</h4>
+        </div>
+      </section>
+
+      <!-- Question and Answer choices section -->
+      <section id="section-2">
         <h3 id="question">Question</h3>
         <h5>Please Choose One Answer: </h5>
           <div id="answer-choices">
@@ -31,13 +41,22 @@
             <button class="choice" id="possible-choice3">option 3 fjdnisoapfhdiosahnfoihndfsiahfjdio</button>
             <button class="choice" id="possible-choice4">option 4 blablalblahfdiowgfdsagsdffrewfg</button>
         </div>
+        <!--Prev and next buttons to submit answer choice and go to next question --> 
         <div id="prev-next">
           <button class="prev-next" id="prev"> Prev </button>
           <button class="prev-next" id="next"> Next </button>
         </div>
       </section>
-      <section id="section-2">
+
+      <!-- Score results page -->
+      <section id="section-3">
+        <div id="score-page">
+          <h3 id="score-title"> SCORE: </h3>
+          <h4 id="result-1"><span id="correct-outof" font-color:red;>4</span> Correct! (Out of 5 Total) </h4>
+        </div>
       </section>
+
+      <!-- Footer section with action buttons -->
       <footer id="main-footer">
         <div id="bottom-buttons">
           <div class="reset-button"><button>Mulligan!</button></div>
