@@ -105,11 +105,17 @@ h1 {
 /* Score results page */
 #section-3 {
     display: block;
-    padding: 3%;
-    margin: 5%;
+    padding: 2%;
+    margin: 3%;
     background-color: black;
     border: 2px solid var(--whtclr);
     border-radius: var(--btnborderRd);
+}
+
+#score-title {
+    padding: 1%;
+    margin: 1%;
+    text-decoration: underline;
 }
 
 /* container that holds all of the bottom action buttons: redo, quit, finish */
