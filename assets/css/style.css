@@ -40,6 +40,22 @@ body {
     cursor: var(--btncursor);
 }
 
+#section-1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5% 0 5%;
+}
+
+#score-link {
+
+}
+
+#timer-container {
+    color: red;
+    font-size: 20px;
+}
+
+
 /* container for answer choices */
 #section-2 {
     display: flex;
@@ -51,6 +67,10 @@ body {
     border-radius: var(--btnborderRd);
 }
 
+#question {
+    margin: 1%;
+    padding: 2%;
+}
 /* answer-option button container within section-2 */
 #answer-choices {
     display: flex;
