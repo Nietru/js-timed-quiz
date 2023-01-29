@@ -25,7 +25,7 @@ body {
 }
 
 /* styles the h1 of the body, the top title "Javascript Fundamentals Quiz". */
-#main-header {
+.main-header {
     display: flex;
     flex-direction: column;
     color: var(--whtclr);
@@ -35,7 +35,7 @@ h1 {
     text-decoration: underline;
 }
 
-#start-button button {
+.start-button button {
     margin-top: 1%;
     font-size: 20px;
     font-weight: bold;
@@ -92,14 +92,6 @@ h1 {
     margin: 1%;
     padding: 2%;
     cursor: var(--btncursor);
-}
-
-/* buttons within section-2 of the body that go to next or prev question */
-.prev-next {
-    font-size: 14px;
-    padding: 2%;
-    margin-right: 2%;
-    margin-left: 2%;
 }
 
 /* Score results page */

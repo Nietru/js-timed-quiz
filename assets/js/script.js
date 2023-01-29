@@ -1,14 +1,3 @@
-
-// function init() {
-//     getCorrect();
-//     getIncorrect();
-// }
-
-// function startTest() {
-//     isCorrect = false;
-//     timerCount = 60;
-//     startButton.disabled = true;
-//     startTimer()
-// }
-
-// startButton.addEventListener("click", startTest);
+// Global Variables:
+var count = 0;
+var time = 60;
