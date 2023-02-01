@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <!--Main Title on page-->
   <div class="startCard">
     <header>
@@ -22,14 +23,19 @@
     <!--Start Quiz action button-->
     <button class="startBtn">Start Quiz!</button>
   </div>
+
       <!-- Question and Answer choices section -->
   <div class="quizCard">
     <div class="timer">
       <div class="timerText"><span id="time">00</span> second(s) remaining...</div>
     </div>
+    <div class="quiz">
       <!-- Questions and Answers will go here via js -->
-  </div>
-
+    </div>
+    <footer class="quizFooter">
+      <button class="nextBtn">next</button>
+    </footer>
+   </div>
       <!-- Score results page/section -->
   <div class="resultCard">
     <div class="results">
@@ -37,10 +43,9 @@
     </div>
             <!-- end quiz: action buttons -->
     <footer class="footerBtns">
-      <div class="redoBtn"><button>Mulligan!</button></div>
+      <div class="redoBtn"><button>Replay!</button></div>
       <div class="quitBtn"><button>Quit</button></div>
     </footer>
-
   </div>
 
   <script src = "./assets/js/script.js"></script>
