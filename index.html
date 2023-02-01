@@ -11,61 +11,40 @@
 
 <body>
     <!--Main Title on page-->
+  <div class="startCard">
     <header>
-      <div id="main-header">
-      <h1>Javascript Fundamentals Quiz (TIMED!)</h1>
-        <!--Start Quiz action button-->
-        <div id="start-button"><button>Start Quiz!</button></div>
+      <div class="header">
+        <h2 class="title">Javascript Fundamentals Quiz (TIMED!)</h2>
+        <!-- The high score section -->
+        <button class="highScores">High Scores!</button>
       </div>
     </header>
-
-    <main>
-      <!--The high score section-->
-      <section id="section-1">
-        <div id="score-link">
-          <h4 class="high-scores"><span id="high-scores">High Scores</span></h4>
-        </div>
-        <!-- The timer/countdown section-->
-        <div id="timer-container">
-          <h4 class="timer-text"><span id="time">00</span> second(s) remaining...</h4>
-        </div>
-      </section>
+    <div class="startBtn">
+    <!--Start Quiz action button-->
+      <button class="startBtn">Start Quiz!</button>
+    </div>
 
       <!-- Question and Answer choices section -->
-      <section id="section-2">
-        <h3 id="question">Question</h3>
-        <h5>Please Choose One Answer: </h5>
-          <div id="answer-choices">
-            <button class="choice" id="possible-choice1">option 1 fhjdiwoajnfidwoahnjfidwsohbn</button>
-            <button class="choice" id="possible-choice2">option 2 jfdikasofhdiosafhndisoahnfido</button>
-            <button class="choice" id="possible-choice3">option 3 fjdnisoapfhdiosahnfoihndfsiahfjdio</button>
-            <button class="choice" id="possible-choice4">option 4 blablalblahfdiowgfdsagsdffrewfg</button>
-        </div>
-        <!--Prev and next buttons to submit answer choice and go to next question --> 
-        <div id="prev-next">
-          <button class="prev-next" id="prev"> Prev </button>
-          <button class="prev-next" id="next"> Next </button>
-        </div>
-      </section>
+    <div class="quizCard">
+      <div class="timer">
+        <div class="timerText"><span id="time">00</span> second(s) remaining...</div>
+      </div>
+      <!-- Questions and Answers will go here via js -->
+    </div>
 
-      <!-- Score results page -->
-      <section id="section-3">
-        <div id="score-page">
-          <h3 id="score-title"> SCORE: </h3>
-          <h4 id="result-1"><span id="correct-outof" font-color:red;>4</span> Correct! (Out of 5 Total) </h4>
-        </div>
-      </section>
-
-      <!-- Footer section with action buttons -->
-      <footer id="main-footer">
-        <div id="bottom-buttons">
-          <div class="reset-button"><button>Mulligan!</button></div>
-          <div class="quit-button"><button>Quit</button></div>
-          <div class="finish-button"><button>Finish</button></div>
-        </div>
+      <!-- Score results page/section -->
+    <div class="resultCard">
+      <div class="results">
+        <!--results will display here after the quiz ends, along with footer buttons via js-->
+      </div>
+            <!-- end quiz: action buttons -->
+      <footer class="footerBtns">
+        <div class="redoBtn"><button>Mulligan!</button></div>
+        <div class="quitBtn"><button>Quit</button></div>
       </footer>
-    </main>
 
-  <script src = "assets/js/script.js"></script>
+    </div>
+
+  <script src = "./assets/js/script.js"></script>
 </body>
 </html>
