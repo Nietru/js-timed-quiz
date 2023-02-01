@@ -1,5 +1,5 @@
 // Creating the list of questions and answer-options in an array.
-let questions = [
+const questions = [
     {
         number: 1,
         question: "Which is the proper way to start to write a function in JavaScript?" ,

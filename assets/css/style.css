@@ -14,7 +14,6 @@
     --btnborderRd: 7px;
     --btnpaddinglg: 10px;   /* for large start, redo, and quit buttons */
     --btnpaddingsm: 5px;    /* for the answer options buttons */
-    --btncursor: pointer;
 }
 
 body {
@@ -34,15 +33,22 @@ button {
     border: 1px solid var(--actfont);
     width: 100px;
     border-radius: var(--btnborderRd);
+    cursor: pointer;
 }
 
-.highScores {
+button:hover{
+    background: #9de0f3;
+}
+
+button.highScores {
     float: left;
     font-size: larger;
 }
 
-.start .startBtn {
-    diplay: flex;
 
+button.startBtn {
+    align-items: center;
+    font-size: larger;
+    margin-top: 20%;
 
-}
+} 
