@@ -11,32 +11,30 @@ var title = document.querySelector(".title");
 
 var quizCard = document.querySelector(".quizCard");
 var timer = document.querySelector(".timer");
+var quiz = document.querySelector(".quiz");
 var quizFooter = document.querySelector(".quizFooter");
+var questProgress = document.querySelector(".questProgress");
 
 var resultCard = document.querySelector(".resultCard");
 var results = document.querySelector(".results");
 var resultButtons = document.querySelector(".footerBtns");
 
 // empty variables for functionality later:
-var answerChoice;
+var option;
 var choiceBtn;
-var questNum;
+var questNum = 0;
+var ansChoices = 0;
 
-var timerFunction;
 var initials;
 var submit;
 var form;
 
 // timer:
-var timerEl = document.createElement("p");
-var timerEl = document.createElement("p");
+var timerSeconds = document.querySelector(".timerSeconds");
+var timerText = document.querySelector(".timerText");
 
 var score = 0;
 var timer = 70;
-
-// quiz section - to display the question and the answer choices:
-var currentQuest = document.createElement("h3");
-var ansChoices = document.createElement("ul");
 
 
 // The list of questions and answer-options in an array:
@@ -47,10 +45,10 @@ var questionList = [
         answer: "function name(parameter, parameter) {",
         options: 
             [
-            "function name[variable] {",
-            "function name(parameter, parameter) {",
-            "function name{}",
-            "function variable(name) {",
+            "a. function name[variable] {",
+            "b. function name(parameter, parameter) {",
+            "c. function name{}",
+            "d. function variable(name) {",
             ]
     },
     
@@ -60,10 +58,10 @@ var questionList = [
         answer: "Web-API",
         options: 
             [
-            "Global Variable",
-            "Operating System",
-            "Web-API",
-            "Object Constructor",
+            "a. Global Variable",
+            "b. Operating System",
+            "c. Web-API",
+            "d. Object Constructor",
             ]
     },
 
@@ -72,10 +70,10 @@ var questionList = [
         answer: "</script>",
         options: 
             [
-            "</href>",
-            "<insert>",
-            "<#java-main>",
-            "</script>",
+            "a. </href>",
+            "b. <insert>",
+            "c. <#java-main>",
+            "d. </script>",
             ]
     },
 
@@ -84,10 +82,10 @@ var questionList = [
         answer: "let x = var.length;",
         options: 
             [
-            "let x = var.length;",
-            "length.get () {",
-            "let x = var.slice;",
-            "substring(start, length);",
+            "a. let x = var.length;",
+            "b. length.get () {",
+            "c. let x = var.slice;",
+            "d. substring(start, length);",
             ]
     },
 
@@ -96,10 +94,48 @@ var questionList = [
         answer: "x === '5'",
         options: 
             [
-            "x !== 8",
-            "x === 5",
-            "x == '5'",
-            "x === '5'",
+            "a. x !== 8",
+            "b. x === 5",
+            "c. x == '5'",
+            "d. x === '5'",
             ]
     },
 ]
+
+// quiz section - to display the question and the answer choices:
+var currentQuest = document.createElement("h3");
+// currentQuest.textContent = questionList[0].question; // to see it works, need a function with a loop.
+
+var ansChoices = document.createElement("ul");
+var option = document.createElement("li");
+
+ansChoices.appendChild(option);
+quiz.appendChild(currentQuest);
+quiz.appendChild(ansChoices);
+
+
+
+function startQuiz () {
+    startCard.style.display="none";
+    quizCard.style.display="block";
+    showQuestion();
+    showOptions();
+}
+// setup start button to hide after click:
+startBtn.addEventListener("click", startQuiz);
+
+// setup quiz inside of quizcard with questionList array:
+function showQuestion() {
+    console.log(questNum);
+    currentQuest.textContent = questionList[questNum].question;
+    questNum = questNum + 1;
+}
+
+function showOptions() {
+    ansChoices.textContent = questionList.options[option];
+    ansChoices = ansChoices + 1;
+        // create loop that renders the options with an event listener in the button to go to next question, rerun showQuestion() with conditions for end of quiz.
+
+}
+
+
