@@ -109,6 +109,7 @@ var currentQuest = document.createElement("h3");
 var ansChoices = document.createElement("ul");
 var option = document.createElement("li");
 
+
 ansChoices.appendChild(option);
 quiz.appendChild(currentQuest);
 quiz.appendChild(ansChoices);
@@ -119,7 +120,7 @@ function startQuiz () {
     startCard.style.display="none";
     quizCard.style.display="block";
     showQuestion();
-    showOptions();
+    // showOptions();
 }
 // setup start button to hide after click:
 startBtn.addEventListener("click", startQuiz);
@@ -129,13 +130,14 @@ function showQuestion() {
     console.log(questNum);
     currentQuest.textContent = questionList[questNum].question;
     questNum = questNum + 1;
+    3
 }
 
-function showOptions() {
-    ansChoices.textContent = questionList.options[option];
-    ansChoices = ansChoices + 1;
-        // create loop that renders the options with an event listener in the button to go to next question, rerun showQuestion() with conditions for end of quiz.
+// function showOptions() {
+//     ansChoices.textContent = questionList.options[option];
+//     ansChoices = ansChoices + 1;
+//         // create loop that renders the options with an event listener in the button to go to next question, rerun showQuestion() with conditions for end of quiz.
 
-}
+// }
 
 
