@@ -10,40 +10,46 @@
 </head>
 
 <body>
+
     <!--Main Title on page-->
-  <div class="startCard">
-    <header>
-      <div class="header">
-        <h2 class="title">Javascript Fundamentals Quiz (TIMED!)</h2>
+  <header>
+    <div class="header">
+      <h2 class="title">Javascript Fundamentals Quiz (TIMED!)</h2>
         <!-- The high score section -->
-        <button class="highScores">High Scores!</button>
-      </div>
-    </header>
-    <div class="startBtn">
-    <!--Start Quiz action button-->
-      <button class="startBtn">Start Quiz!</button>
+      <button class="highScores">High Scores!</button>
     </div>
+  </header>
+  <div class="startCard">
+    <!--Start Quiz action button-->
+    <button class="startBtn">Start Quiz!</button>
+  </div>
 
       <!-- Question and Answer choices section -->
-    <div class="quizCard">
-      <div class="timer">
-        <div class="timerText"><span id="time">00</span> second(s) remaining...</div>
-      </div>
+  <div class="quizCard">
+    <div class="timer">
+      <div class="timerSeconds">70</div>
+      <div class="timerText">Second(s) Remaining!</div>
+    </div>
+    <div class="quiz">
       <!-- Questions and Answers will go here via js -->
     </div>
-
-      <!-- Score results page/section -->
-    <div class="resultCard">
-      <div class="results">
-        <!--results will display here after the quiz ends, along with footer buttons via js-->
+    <footer class="quizFooter">
+      <div class="questProgress">
+        <!-- this will be handled in js -->
       </div>
-            <!-- end quiz: action buttons -->
-      <footer class="footerBtns">
-        <div class="redoBtn"><button>Mulligan!</button></div>
-        <div class="quitBtn"><button>Quit</button></div>
-      </footer>
-
+    </footer>
+   </div>
+      <!-- Score results page/section -->
+  <div class="resultCard">
+    <div class="results">
+        <!--results will display here after the quiz ends, along with footer buttons via js-->
     </div>
+            <!-- end quiz: action buttons -->
+    <footer class="footerBtns">
+      <div class="redoBtn"><button>Replay!</button></div>
+      <div class="quitBtn"><button>Quit</button></div>
+    </footer>
+  </div>
 
   <script src = "./assets/js/script.js"></script>
 </body>
