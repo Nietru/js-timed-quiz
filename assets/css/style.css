@@ -61,10 +61,7 @@ button.startBtn {
 .timer {
     float: right;
     padding: 2%;
-    margin: 5px;
-    color: rgb(252, 215, 8);
-    font-weight: bold;
-    border: 1px solid rgb(133, 3, 3);
+
 }
 
 .resultCard {
