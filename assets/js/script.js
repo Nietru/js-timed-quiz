@@ -7,6 +7,8 @@ const startBtn = document.querySelector(".start-btn");
 var quizCard = document.querySelector(".quiz-card");
 var timer = document.querySelector(".timer");
 var timerSeconds = document.querySelector(".timer-seconds");
+var quizFooter = document.querySelector(".quiz-footer");
+var questProgress = document.querySelector(".quest-progress");
 
 // Creating the list of questions and answer-options in an array.
 const quizElements = [
@@ -62,15 +64,21 @@ const quizElements = [
   },
 ];
 
+var quiz = document.querySelector(".quiz");
+
 startBtn.addEventListener("click", hideShow, false);
 
 function hideShow() {
+  startBtn.style.display = "none"; // hide start button on click.
   quizCard.style.display = "block";
-  this.style.display = "none";
-  quizCard.append(quizElements[i]);
+  timer.style.display = "block";
+  timerSeconds.style.display = "block";
+  quiz.style.display = "block";
+  quizFooter.style.display = "block";
+  questProgress.style.display = "block";
 }
 
 // loop through quiz elements, starting with first question
-for (var i = 0; i < quizElements.length; i++) {
-  quizElements[i].setAttribute("style", "display:block;");
+for (var i = 1; i < quizElements.length; i++) {
+  quiz.append(quizElements[i]);
 }
