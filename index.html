@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Javascript Fundamentals | Timed Quiz | Peer Comparison</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!--Main Title on page-->
-  <header>
-    <div class="header">
+    <header>
       <h2 class="title">Javascript Fundamentals Quiz (TIMED!)</h2>
-        <!-- The high score section -->
-      <button class="highScores">High Scores!</button>
-    </div>
-  </header>
-  <div class="startCard">
-    <!--Start Quiz action button-->
-    <button class="startBtn">Start Quiz!</button>
-  </div>
-
-      <!-- Question and Answer choices section -->
-  <div class="quizCard">
-    <div class="timer">
-      <div class="timerSeconds"></div>
-    </div>
-    <div class="quiz">
-      <!-- Questions and Answers will go here via js -->
-    </div>
-    <footer class="quizFooter">
-      <div class="questProgress">
-        <!-- this will be handled in js -->
+      <!-- The high score section -->
+      <button class="high-scores">High Scores!</button>
+    </header>
+    <main class="container">
+      <div class="start-card">
+        <!--Start Quiz action button-->
+        <button class="start-btn">Start Quiz!</button>
       </div>
-    </footer>
-   </div>
+      <!-- Question and Answer choices section -->
+      <div class="quiz-card">
+        <div class="timer">
+          <div class="timer-seconds"></div>
+        </div>
+        <div class="quiz">
+          <!-- Questions and Answers will go here via js -->
+        </div>
+        <footer class="quiz-footer">
+          <div class="quest-progress">
+            <!-- this will be handled in js -->
+          </div>
+        </footer>
+      </div>
       <!-- Score results page/section -->
-  <div class="resultCard">
-    <div class="results">
-        <!--results will display here after the quiz ends, along with footer buttons via js-->
-    </div>
-            <!-- end quiz: action buttons -->
-    <footer class="footerBtns">
-      <div class="redoBtn"><button>Replay!</button></div>
-      <div class="quitBtn"><button>Quit</button></div>
-    </footer>
-  </div>
-
-  <script src = "./assets/js/script.js"></script>
-</body>
+      <div class="result-card">
+        <div class="results">
+          <!--results will display here after the quiz ends, along with footer buttons via js-->
+        </div>
+        <!-- end quiz: action buttons -->
+        <footer class="footer-btns">
+          <div class="redo-btn"><button>Replay!</button></div>
+          <div class="quit-btn"><button>Quit</button></div>
+        </footer>
+      </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

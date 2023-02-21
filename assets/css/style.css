@@ -1,70 +1,69 @@
 /* color palette sourced from: https://coolors.co/404e4d-63595c-646881-62bec1-5ad2f4 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'arial', 'sans-serif';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "arial", "sans-serif";
 }
 
 :root {
-    --darkclr: #404e4d;
-    --whtclr: whitesmoke;
-    --actionbtn: #5AD2F4;
-    --actfont: #646881;
-    --btnborderRd: 7px;
-    --btnpaddinglg: 10px;   /* for large start, redo, and quit buttons */
-    --btnpaddingsm: 5px;    /* for the answer options buttons */
+  --darkclr: #404e4d;
+  --whtclr: whitesmoke;
+  --actionbtn: #5ad2f4;
+  --actfont: #646881;
+  --btnborderRd: 7px;
+  --btnpaddinglg: 10px; /* for large start, redo, and quit buttons */
+  --btnpaddingsm: 5px; /* for the answer options buttons */
 }
 
 body {
-    margin: 50px 300px 500px 300px;
-    background: var(--darkclr);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: var(--whtclr);
+  margin: 50px 300px 500px 300px;
+  background: var(--darkclr);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--whtclr);
 }
 
 button {
-    color: var(--actfont);
-    background: var(--actionbtn);
-    font-weight: bolder;
-    padding: var(--btnpaddingsm);
-    border: 1px solid var(--actfont);
-    width: 100px;
-    border-radius: var(--btnborderRd);
-    cursor: pointer;
+  color: var(--actfont);
+  background: var(--actionbtn);
+  font-weight: bolder;
+  padding: var(--btnpaddingsm);
+  border: 1px solid var(--actfont);
+  width: 100px;
+  border-radius: var(--btnborderRd);
+  cursor: pointer;
 }
 
-button:hover{
-    background: #9de0f3;
+button:hover {
+  background: #9de0f3;
 }
 
-button.highScores {
-    float: left;
-    position: relative;
-    font-size: larger;
-    margin: 2px;
+button.high-scores {
+  float: left;
+  position: relative;
+  font-size: larger;
+  margin: 2px;
 }
 
-button.startBtn {
-    position: relative;
-    font-size: larger;
-    margin-top: 5%;
+button.start-btn {
+  position: relative;
+  font-size: larger;
+  margin-top: 5%;
 }
 
-.quizCard {
-    display: none;
-    border: 2px solid black;
+.quiz-card {
+  display: none;
+  border: 2px solid black;
 }
 
 .timer {
-    float: right;
-    padding: 2%;
-
+  float: right;
+  padding: 2%;
 }
 
-.resultCard {
-    display: none;
-    border: 2px solid black;
+.result-card {
+  display: none;
+  border: 2px solid black;
 }
