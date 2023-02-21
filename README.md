@@ -16,6 +16,10 @@ There is also a timer countdown that functions at this time that is displayed wh
 
 ![Picture of the JavaScript Fundamental Quiz once started](./assets/images/capture2.PNG?raw=true)
 
+## Deployment
+
+https://nietru.github.io/js-timed-quiz/
+
 ## User Story
 
 AS A coding boot camp student
