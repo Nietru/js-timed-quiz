@@ -10,7 +10,7 @@ var secondsLeft = 70;
 var quizFooter = document.querySelector(".quiz-footer");
 var questProgress = document.querySelector(".quest-progress");
 
-// Creating the list of questions and answer-options in an array.
+// ------------------------------- Creating the list of questions and answer-options in an array. --------------------
 const quizElements = [
   {
     number: 0,
@@ -63,10 +63,11 @@ const quizElements = [
     options: ["x !== 8", "x === 5", "x == '5'", "x === '5'"],
   },
 ];
+// --------------------------------------- End of object array ---------------------------------------------
 
 var quiz = document.querySelector(".quiz");
 
-startBtn.addEventListener("click", hideShow, false);
+startBtn.addEventListener("click", hideShow, false); // googled this, not totally sure whats happening here but it works.
 
 function hideShow() {
   startBtn.style.display = "none"; // hide start button on click.
@@ -85,7 +86,8 @@ function hideShow() {
     console.log(numbs);
     // showing each object in the console
     for (var i = 0; i < numbs; i++) {}
-    console.log(quizElements[i]);
+    console.log(quizElements[i].question); // looks great in the console.... now what?...
+    console.log(quizElements[i].options);
   });
 }
 
@@ -93,15 +95,17 @@ function setTime() {
   // sets interval in a binding
   var timerInterval = setInterval(function () {
     secondsLeft--;
-    timerInterval.textContent = secondsLeft + " seconds remaining!";
+    time.textContent = secondsLeft + " seconds remaining!";
     if (secondsLeft === 0) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
       //   showResults(); // have to make this function for results container/card to show after time runs out.
     }
+    // time.append(timerInterval); // nothing is showing up!!! : (
   }, 1000);
 }
 // loop through quiz elements, starting with first question
-// for (var j = 1; j < quizElements.length; j++) {
-//   quiz.append(quizElements[j]);
-// }
+for (var j = 1; j < quizElements.length; j++) {
+  quiz.append(quizElements[j].question);
+}
+setTime();
