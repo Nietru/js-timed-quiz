@@ -5,13 +5,15 @@ var startCard = document.querySelector(".start-card");
 const startBtn = document.querySelector(".start-btn");
 // Main and quiz container bindings
 var quizCard = document.querySelector(".quiz-card");
-var timer = document.querySelector(".timer");
-var timerSeconds = document.querySelector(".timer-seconds");
+var time = document.querySelector(".timer");
+var secondsLeft = 70;
+var quizFooter = document.querySelector(".quiz-footer");
+var questProgress = document.querySelector(".quest-progress");
 
-// Creating the list of questions and answer-options in an array.
+// ------------------------------- Creating the list of questions and answer-options in an array. --------------------
 const quizElements = [
   {
-    number: 1,
+    number: 0,
     question:
       "Which is the proper way to start to write a function in JavaScript?",
     answer: "function name(parameter, parameter) {",
@@ -24,7 +26,7 @@ const quizElements = [
   },
 
   {
-    number: 2,
+    number: 1,
     question: "Google Chrome is an example of, which of the bollowing?",
     answer: "Web-API",
     options: [
@@ -36,14 +38,14 @@ const quizElements = [
   },
 
   {
-    number: 3,
+    number: 2,
     question: "Which tag is used to insert JavaScript in the HTML file?",
     answer: "</script>",
     options: ["</href>", "<insert>", "<#java-main>", "</script>"],
   },
 
   {
-    number: 4,
+    number: 3,
     question: "Which code will give you the length of a string?",
     answer: "let x = var.length;",
     options: [
@@ -55,22 +57,55 @@ const quizElements = [
   },
 
   {
-    number: 5,
+    number: 4,
     question: "Given that x = 5 , which operator would return a false value?",
     answer: "x === '5'",
     options: ["x !== 8", "x === 5", "x == '5'", "x === '5'"],
   },
 ];
+// --------------------------------------- End of object array ---------------------------------------------
 
-startBtn.addEventListener("click", hideShow, false);
+var quiz = document.querySelector(".quiz");
+
+startBtn.addEventListener("click", hideShow, false); // googled this, not totally sure whats happening here but it works.
 
 function hideShow() {
+  startBtn.style.display = "none"; // hide start button on click.
   quizCard.style.display = "block";
-  this.style.display = "none";
-  quizCard.append(quizElements[i]);
+  time.style.display = "block";
+  quiz.style.display = "block";
+  quizFooter.style.display = "block";
+  questProgress.style.display = "block";
+  //   for (var i = 0; i < quizElements.length; i++) {
+  //     console.log(quizElements[i]);
+  //   }
+  quizElements.forEach(function (numb, quest, option) {
+    var numbs = numb.number++;
+    var quests = quest.question++;
+
+    console.log(numbs);
+    // showing each object in the console
+    for (var i = 0; i < numbs; i++) {}
+    console.log(quizElements[i].question); // looks great in the console.... now what?...
+    console.log(quizElements[i].options);
+  });
 }
 
-// loop through quiz elements, starting with first question
-for (var i = 0; i < quizElements.length; i++) {
-  quizElements[i].setAttribute("style", "display:block;");
+function setTime() {
+  // sets interval in a binding
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    time.textContent = secondsLeft + " seconds remaining!";
+    if (secondsLeft === 0) {
+      // stops execution of action at set interval
+      clearInterval(timerInterval);
+      //   showResults(); // have to make this function for results container/card to show after time runs out.
+    }
+    // time.append(timerInterval); // nothing is showing up!!! : (
+  }, 1000);
 }
+// loop through quiz elements, starting with first question
+for (var j = 1; j < quizElements.length; j++) {
+  quiz.append(quizElements[j].question);
+}
+setTime();
