@@ -58,7 +58,9 @@ button.start-btn {
   border: 2px solid black;
 }
 
-.timer {
+.timer,
+.time {
+  color: red;
   float: right;
   padding: 2%;
 }
