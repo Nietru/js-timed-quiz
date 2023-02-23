@@ -58,11 +58,21 @@ button.start-btn {
   border: 2px solid black;
 }
 
+.quiz {
+  display: flex;
+  flex-direction: column;
+}
+
 .timer,
 .time {
   color: red;
   float: right;
   padding: 2%;
+}
+
+.quizElements.options {
+  display: flex;
+  flex-direction: column;
 }
 
 .result-card {
