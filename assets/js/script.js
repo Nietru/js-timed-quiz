@@ -5,6 +5,7 @@ var startCard = document.querySelector(".start-card");
 const startBtn = document.querySelector(".start-btn");
 // Main and quiz container bindings
 var quizCard = document.querySelector(".quiz-card");
+var questArea = document.querySelector(".question-area");
 var time = document.querySelector(".timer");
 var secondsLeft = 70;
 var quizFooter = document.querySelector(".quiz-footer");
@@ -101,11 +102,13 @@ function setTime() {
       clearInterval(timerInterval);
       //   showResults(); // have to make this function for results container/card to show after time runs out.
     }
-    // time.append(timerInterval); // nothing is showing up!!! : (
   }, 1000);
 }
 // loop through quiz elements, starting with first question
-for (var j = 1; j < quizElements.length; j++) {
-  quiz.append(quizElements[j].question);
+for (var j = 0; j < quizElements.length; j++) {
+  questArea.append(quizElements[0].question);
+  quiz.append(quizElements[0].options[j]);
+  questProgress.textContent = " 1/5 ";
 }
+
 setTime();
