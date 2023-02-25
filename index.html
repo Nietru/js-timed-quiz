@@ -15,11 +15,13 @@
       <!-- The high score section -->
       <button class="high-scores">High Scores!</button>
     </header>
+
     <main class="container">
       <div class="start-card">
         <!--Start Quiz action button-->
         <button class="start-btn">Start Quiz!</button>
       </div>
+
       <!-- Question and Answer choices section -->
       <div class="quiz-card">
         <div class="timer"></div>
@@ -27,14 +29,18 @@
         <div class="quiz"></n>
           <!-- Questions and Answers will go here via js -->
         </div>
+        <p id="result-feedback"></p>
+
         <footer class="quiz-footer">
           <div class="quest-progress">
-            <!-- this will be handled in js -->
+            <!-- supposed to show 0/5 - 5/5 depending on quiz progress. -->
           </div>
         </footer>
-      </div>
-      <!-- Score results page/section -->
+      </div> <!-- end of quiz-card div/container 'div class = "quiz-card" ' -->
+
+      <!-- Score results page/section for local storage and high scores. -->
       <div class="result-card">
+
         <div class="results">
           <!--results will display here after the quiz ends, along with footer buttons via js-->
         </div>
@@ -44,6 +50,7 @@
           <div class="quit-btn"><button>Quit</button></div>
         </footer>
       </div>
+      <!-- end of main div/container 'main class = "containter" ' -->
     </main>
     <script src="./assets/js/script.js"></script>
   </body>
