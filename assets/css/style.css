@@ -17,7 +17,7 @@
 }
 
 body {
-  margin: 50px 300px 500px 300px;
+  margin: 50px 100px 500px 100px;
   background: var(--darkclr);
   display: flex;
   flex-direction: column;

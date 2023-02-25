@@ -8,6 +8,7 @@ var quizCard = document.querySelector(".quiz-card");
 var questArea = document.querySelector(".question-area");
 var time = document.querySelector(".timer");
 var secondsLeft = 70;
+var currentQ = 0;
 var quizFooter = document.querySelector(".quiz-footer");
 var questProgress = document.querySelector(".quest-progress");
 
@@ -68,28 +69,73 @@ const quizElements = [
 
 var quiz = document.querySelector(".quiz");
 
-startBtn.addEventListener("click", hideShow, false); // googled this, not totally sure whats happening here but it works.
+startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
-function hideShow() {
+function startQuiz() {
   startBtn.style.display = "none"; // hide start button on click.
   quizCard.style.display = "block";
-  time.style.display = "block";
-  quiz.style.display = "block";
-  quizFooter.style.display = "block";
-  questProgress.style.display = "block";
+  setTime();
+  showQuestion();
+}
+
+function showQuestion() {
+  // time.style.display = "block";
+  // quiz.style.display = "block";
+  // quizFooter.style.display = "block";
+  // questProgress.style.display = "block";
   //   for (var i = 0; i < quizElements.length; i++) {
   //     console.log(quizElements[i]);
   //   }
-  quizElements.forEach(function (numb, quest, option) {
-    var numbs = numb.number++;
-    var quests = quest.question++;
+  // quizElements.forEach(function (numb, quest, option) {
+  //   var numbs = numb.number++;
+  //   var quests = quest.question++;
+  //   console.log(numbs);
+  //   // showing each object in the console
+  //   for (var i = 0; i < numbs; i++) {}
+  //   console.log(quizElements[i].question); // looks great in the console.... now what?...
+  //   console.log(quizElements[i].options);
+  // });
+  questArea.textContent = quizElements[currentQ].question;
+  quiz.innerHTML = "";
+  for (i = 0; i < quizElements[currentQ].options.length; i++) {
+    var newBtn = document.createElement("button");
+    newBtn.textContent = quizElements[currentQ].options[i];
+    newBtn.addEventListener("click", answerQuestion);
+    quiz.append(newBtn);
+  }
+}
 
-    console.log(numbs);
-    // showing each object in the console
-    for (var i = 0; i < numbs; i++) {}
-    console.log(quizElements[i].question); // looks great in the console.... now what?...
-    console.log(quizElements[i].options);
-  });
+var feedback = document.getElementById("result-feedback");
+
+function answerQuestion(event) {
+  // console.log("yo, I got clicked");
+  // console.log(event.target);
+  var userChoice = event.target.textContent;
+  if (userChoice == quizElements[currentQ].answer) {
+    console.log("yeah you right, score goes up");
+    //we can do something to increase the score);
+    feedback.textContent = "correct!";
+    feedback.style.color = "green";
+
+    setTimeout(function () {
+      feedback.textContent = "";
+    }, 2500);
+  } else {
+    console.log("wrong");
+    //time goes down
+    secondsLeft -= 10;
+    feedback.textContent = "incorrect!";
+    feedback.style.color = "red";
+
+    setTimeout(function () {
+      feedback.textContent = "";
+    }, 2500);
+  }
+
+  currentQ++;
+  if (currentQ < quizElements.length) {
+    showQuestion();
+  }
 }
 
 function setTime() {
@@ -97,7 +143,7 @@ function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft + " seconds remaining!";
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0 || currentQ >= quizElements.length) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
       //   showResults(); // have to make this function for results container/card to show after time runs out.
@@ -105,10 +151,8 @@ function setTime() {
   }, 1000);
 }
 // loop through quiz elements, starting with first question
-for (var j = 0; j < quizElements.length; j++) {
-  questArea.append(quizElements[0].question);
-  quiz.append(quizElements[0].options[j]);
-  questProgress.textContent = " 1/5 ";
-}
-
-setTime();
+// for (var j = 0; j < quizElements.length; j++) {
+//   questArea.append(quizElements[0].question);
+//   quiz.append(quizElements[0].options[j]);
+//   questProgress.textContent = " 1/5 ";
+// }
