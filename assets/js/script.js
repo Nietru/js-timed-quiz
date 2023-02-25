@@ -1,17 +1,3 @@
-// Header and starting screen bindings
-const highScoreBtn = document.querySelector(".high-scores");
-const mainCont = document.querySelector(".container");
-var startCard = document.querySelector(".start-card");
-const startBtn = document.querySelector(".start-btn");
-// Main and quiz container bindings
-var quizCard = document.querySelector(".quiz-card");
-var questArea = document.querySelector(".question-area");
-var time = document.querySelector(".timer");
-var secondsLeft = 70;
-var currentQ = 0;
-var quizFooter = document.querySelector(".quiz-footer");
-var questProgress = document.querySelector(".quest-progress");
-
 // ------------------------------- Creating the list of questions and answer-options in an array. --------------------
 const quizElements = [
   {
@@ -67,6 +53,19 @@ const quizElements = [
 ];
 // --------------------------------------- End of object array ---------------------------------------------
 
+// Header and starting screen bindings
+const highScoreBtn = document.querySelector(".high-scores");
+const mainCont = document.querySelector(".container");
+var startCard = document.querySelector(".start-card");
+const startBtn = document.querySelector(".start-btn");
+// Main and quiz container bindings
+var quizCard = document.querySelector(".quiz-card");
+var questArea = document.querySelector(".question-area");
+var time = document.querySelector(".timer");
+var secondsLeft = 70;
+var currentQ = 0;
+var quizFooter = document.querySelector(".quiz-footer");
+var questProgress = document.querySelector(".quest-progress");
 var quiz = document.querySelector(".quiz");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.

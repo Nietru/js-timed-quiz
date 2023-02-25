@@ -10,7 +10,7 @@
   --darkclr: #404e4d;
   --whtclr: whitesmoke;
   --actionbtn: #5ad2f4;
-  --actfont: #646881;
+  --actfont: #010729;
   --btnborderRd: 7px;
   --btnpaddinglg: 10px; /* for large start, redo, and quit buttons */
   --btnpaddingsm: 5px; /* for the answer options buttons */
@@ -31,7 +31,6 @@ button {
   font-weight: bolder;
   padding: var(--btnpaddingsm);
   border: 1px solid var(--actfont);
-  width: 100px;
   border-radius: var(--btnborderRd);
   cursor: pointer;
 }
@@ -61,6 +60,11 @@ button.start-btn {
 .quiz {
   display: flex;
   flex-direction: column;
+}
+
+.quiz button {
+  margin: 2px;
+  border: 0.5px solid black;
 }
 
 .timer,
