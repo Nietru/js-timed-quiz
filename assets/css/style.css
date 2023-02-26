@@ -10,7 +10,7 @@
   --darkclr: #404e4d;
   --whtclr: whitesmoke;
   --actionbtn: #5ad2f4;
-  --actfont: #646881;
+  --actfont: #010729;
   --btnborderRd: 7px;
   --btnpaddinglg: 10px; /* for large start, redo, and quit buttons */
   --btnpaddingsm: 5px; /* for the answer options buttons */
@@ -31,7 +31,6 @@ button {
   font-weight: bolder;
   padding: var(--btnpaddingsm);
   border: 1px solid var(--actfont);
-  width: 100px;
   border-radius: var(--btnborderRd);
   cursor: pointer;
 }
@@ -43,8 +42,8 @@ button:hover {
 button.high-scores {
   float: left;
   position: relative;
-  font-size: larger;
-  margin: 2px;
+  margin: 10px;
+  padding: 6px;
 }
 
 button.start-btn {
@@ -55,12 +54,24 @@ button.start-btn {
 
 .quiz-card {
   display: none;
+  padding: 5px;
   border: 2px solid black;
+}
+
+h3 {
+  margin: 5px;
+  padding: 5px;
 }
 
 .quiz {
   display: flex;
   flex-direction: column;
+}
+
+.quiz button {
+  margin: 2px;
+  padding: 10px;
+  border: 0.5px solid black;
 }
 
 .timer,
@@ -78,4 +89,7 @@ button.start-btn {
 .result-card {
   display: none;
   border: 2px solid black;
+  font-size: larger;
+  padding: 10px;
+  margin: 10px;
 }

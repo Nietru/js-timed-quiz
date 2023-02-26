@@ -1,17 +1,3 @@
-// Header and starting screen bindings
-const highScoreBtn = document.querySelector(".high-scores");
-const mainCont = document.querySelector(".container");
-var startCard = document.querySelector(".start-card");
-const startBtn = document.querySelector(".start-btn");
-// Main and quiz container bindings
-var quizCard = document.querySelector(".quiz-card");
-var questArea = document.querySelector(".question-area");
-var time = document.querySelector(".timer");
-var secondsLeft = 70;
-var currentQ = 0;
-var quizFooter = document.querySelector(".quiz-footer");
-var questProgress = document.querySelector(".quest-progress");
-
 // ------------------------------- Creating the list of questions and answer-options in an array. --------------------
 const quizElements = [
   {
@@ -67,49 +53,59 @@ const quizElements = [
 ];
 // --------------------------------------- End of object array ---------------------------------------------
 
+// Header and starting screen bindings
+const highScoreBtn = document.querySelector(".high-scores");
+const mainCont = document.querySelector(".container");
+var startCard = document.querySelector(".start-card");
+const startBtn = document.querySelector(".start-btn");
+// Main and quiz container bindings
+var quizCard = document.querySelector(".quiz-card");
+var questArea = document.querySelector(".question-area");
+var time = document.querySelector(".timer");
+var secondsLeft = 60;
+var currentQ = 0;
+var quizFooter = document.querySelector(".quiz-footer");
+var questProgress = document.querySelector(".quest-progress");
 var quiz = document.querySelector(".quiz");
+var resultCard = document.querySelector(".result-card");
+var results = document.querySelector(".results");
+var endQuizBtns = document.querySelector(".footer-btns");
+var redoBtn = document.querySelector(".redo-btn");
+var quitBtn = document.querySelector(".quit-btn");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
 function startQuiz() {
-  startBtn.style.display = "none"; // hide start button on click.
+  startCard.style.display = "none"; // hide start button on click.
   quizCard.style.display = "block";
   setTime();
   showQuestion();
 }
 
 function showQuestion() {
-  // time.style.display = "block";
-  // quiz.style.display = "block";
-  // quizFooter.style.display = "block";
-  // questProgress.style.display = "block";
-  //   for (var i = 0; i < quizElements.length; i++) {
-  //     console.log(quizElements[i]);
-  //   }
-  // quizElements.forEach(function (numb, quest, option) {
-  //   var numbs = numb.number++;
-  //   var quests = quest.question++;
-  //   console.log(numbs);
-  //   // showing each object in the console
-  //   for (var i = 0; i < numbs; i++) {}
-  //   console.log(quizElements[i].question); // looks great in the console.... now what?...
-  //   console.log(quizElements[i].options);
-  // });
+  // changing the questArea div, from the html, to display the current question from the quizElements array.
+  // `currentQ = 0;` ^^ our created binding, is first element of array.
+  // because our array holds objects, we can use dot notation to target question -> '.question'
   questArea.textContent = quizElements[currentQ].question;
+  // have to clear the options buttons each time a new question is shown:
   quiz.innerHTML = "";
+  // created a new button for each answer option with a for loop:
   for (i = 0; i < quizElements[currentQ].options.length; i++) {
     var newBtn = document.createElement("button");
     newBtn.textContent = quizElements[currentQ].options[i];
+    // answerQuestion will be the call back function, we create later, so it will throw an error for now.
     newBtn.addEventListener("click", answerQuestion);
     quiz.append(newBtn);
   }
 }
 
 var feedback = document.getElementById("result-feedback");
+var scorePoints = 25;
 
 function answerQuestion(event) {
   // console.log("yo, I got clicked");
   // console.log(event.target);
+  // the .target.textContent will let you know what has been clicked by the user, then we can compare it to the correct answer.
   var userChoice = event.target.textContent;
   if (userChoice == quizElements[currentQ].answer) {
     console.log("yeah you right, score goes up");
@@ -119,7 +115,8 @@ function answerQuestion(event) {
 
     setTimeout(function () {
       feedback.textContent = "";
-    }, 2500);
+      // 3000 =  3 seconds to display if they got the answer correct or incorrect.
+    }, 3000);
   } else {
     console.log("wrong");
     //time goes down
@@ -129,10 +126,11 @@ function answerQuestion(event) {
 
     setTimeout(function () {
       feedback.textContent = "";
-    }, 2500);
+    }, 3000);
   }
-
+  // currentQ++ will go to the next question when the user picks an answer, whether it is right or wrong (outside of if else^)
   currentQ++;
+  // will stop trying to show another question (showQuestion function) if there are no more questions left in the quiz.
   if (currentQ < quizElements.length) {
     showQuestion();
   }
@@ -143,16 +141,18 @@ function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft + " seconds remaining!";
+    // reinforces line 127 so that if we run out of time OR || questions, the quiz is over.
     if (secondsLeft <= 0 || currentQ >= quizElements.length) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
-      //   showResults(); // have to make this function for results container/card to show after time runs out.
+      // show results at the end of the quiz.
+      showResults();
     }
   }, 1000);
 }
-// loop through quiz elements, starting with first question
-// for (var j = 0; j < quizElements.length; j++) {
-//   questArea.append(quizElements[0].question);
-//   quiz.append(quizElements[0].options[j]);
-//   questProgress.textContent = " 1/5 ";
-// }
+
+function showResults() {
+  quizCard.style.display = "none";
+  resultCard.style.display = "flex";
+  results.style.display = "block";
+}
