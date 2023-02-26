@@ -78,27 +78,17 @@ function startQuiz() {
 }
 
 function showQuestion() {
-  // time.style.display = "block";
-  // quiz.style.display = "block";
-  // quizFooter.style.display = "block";
-  // questProgress.style.display = "block";
-  //   for (var i = 0; i < quizElements.length; i++) {
-  //     console.log(quizElements[i]);
-  //   }
-  // quizElements.forEach(function (numb, quest, option) {
-  //   var numbs = numb.number++;
-  //   var quests = quest.question++;
-  //   console.log(numbs);
-  //   // showing each object in the console
-  //   for (var i = 0; i < numbs; i++) {}
-  //   console.log(quizElements[i].question); // looks great in the console.... now what?...
-  //   console.log(quizElements[i].options);
-  // });
+  // changing the questArea div, from the html, to display the current question from the quizElements array.
+  // `currentQ = 0;` ^^ our created binding, is first element of array.
+  // because our array holds objects, we can use dot notation to target question -> '.question'
   questArea.textContent = quizElements[currentQ].question;
+  // have to clear the options buttons each time a new question is shown:
   quiz.innerHTML = "";
+  // created a new button for each answer option with a for loop:
   for (i = 0; i < quizElements[currentQ].options.length; i++) {
     var newBtn = document.createElement("button");
     newBtn.textContent = quizElements[currentQ].options[i];
+    // answerQuestion will be the call back function, we create later, so it will throw an error for now. 
     newBtn.addEventListener("click", answerQuestion);
     quiz.append(newBtn);
   }
@@ -109,6 +99,7 @@ var feedback = document.getElementById("result-feedback");
 function answerQuestion(event) {
   // console.log("yo, I got clicked");
   // console.log(event.target);
+  // the .target.textContent will let you know what has been clicked by the user, then we can compare it to the correct answer.
   var userChoice = event.target.textContent;
   if (userChoice == quizElements[currentQ].answer) {
     console.log("yeah you right, score goes up");
@@ -118,7 +109,7 @@ function answerQuestion(event) {
 
     setTimeout(function () {
       feedback.textContent = "";
-    }, 2500);
+    }, 2500);90io-
   } else {
     console.log("wrong");
     //time goes down
@@ -130,8 +121,9 @@ function answerQuestion(event) {
       feedback.textContent = "";
     }, 2500);
   }
-
+// currentQ++ will go to the next question when the user picks an answer, whether it is right or wrong (outside of if else^)
   currentQ++;
+  // will stop trying to show another question, and stop the timer if there are no more questions left in the quiz.
   if (currentQ < quizElements.length) {
     showQuestion();
   }
@@ -142,6 +134,7 @@ function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft + " seconds remaining!";
+    // reinforces line 127 so that if we run out of time OR || questions, the quiz is over.
     if (secondsLeft <= 0 || currentQ >= quizElements.length) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
