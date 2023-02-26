@@ -62,16 +62,21 @@ const startBtn = document.querySelector(".start-btn");
 var quizCard = document.querySelector(".quiz-card");
 var questArea = document.querySelector(".question-area");
 var time = document.querySelector(".timer");
-var secondsLeft = 70;
+var secondsLeft = 60;
 var currentQ = 0;
 var quizFooter = document.querySelector(".quiz-footer");
 var questProgress = document.querySelector(".quest-progress");
 var quiz = document.querySelector(".quiz");
+var resultCard = document.querySelector(".result-card");
+var results = document.querySelector(".results");
+var endQuizBtns = document.querySelector(".footer-btns");
+var redoBtn = document.querySelector(".redo-btn");
+var quitBtn = document.querySelector(".quit-btn");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
 function startQuiz() {
-  startBtn.style.display = "none"; // hide start button on click.
+  startCard.style.display = "none"; // hide start button on click.
   quizCard.style.display = "block";
   setTime();
   showQuestion();
@@ -88,13 +93,14 @@ function showQuestion() {
   for (i = 0; i < quizElements[currentQ].options.length; i++) {
     var newBtn = document.createElement("button");
     newBtn.textContent = quizElements[currentQ].options[i];
-    // answerQuestion will be the call back function, we create later, so it will throw an error for now. 
+    // answerQuestion will be the call back function, we create later, so it will throw an error for now.
     newBtn.addEventListener("click", answerQuestion);
     quiz.append(newBtn);
   }
 }
 
 var feedback = document.getElementById("result-feedback");
+var scorePoints = 25;
 
 function answerQuestion(event) {
   // console.log("yo, I got clicked");
@@ -109,7 +115,8 @@ function answerQuestion(event) {
 
     setTimeout(function () {
       feedback.textContent = "";
-    }, 2500);90io-
+      // 3000 =  3 seconds to display if they got the answer correct or incorrect.
+    }, 3000);
   } else {
     console.log("wrong");
     //time goes down
@@ -119,11 +126,11 @@ function answerQuestion(event) {
 
     setTimeout(function () {
       feedback.textContent = "";
-    }, 2500);
+    }, 3000);
   }
-// currentQ++ will go to the next question when the user picks an answer, whether it is right or wrong (outside of if else^)
+  // currentQ++ will go to the next question when the user picks an answer, whether it is right or wrong (outside of if else^)
   currentQ++;
-  // will stop trying to show another question, and stop the timer if there are no more questions left in the quiz.
+  // will stop trying to show another question (showQuestion function) if there are no more questions left in the quiz.
   if (currentQ < quizElements.length) {
     showQuestion();
   }
@@ -138,13 +145,14 @@ function setTime() {
     if (secondsLeft <= 0 || currentQ >= quizElements.length) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
-      //   showResults(); // have to make this function for results container/card to show after time runs out.
+      // show results at the end of the quiz.
+      showResults();
     }
   }, 1000);
 }
-// loop through quiz elements, starting with first question
-// for (var j = 0; j < quizElements.length; j++) {
-//   questArea.append(quizElements[0].question);
-//   quiz.append(quizElements[0].options[j]);
-//   questProgress.textContent = " 1/5 ";
-// }
+
+function showResults() {
+  quizCard.style.display = "none";
+  resultCard.style.display = "flex";
+  results.style.display = "block";
+}
