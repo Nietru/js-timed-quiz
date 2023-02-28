@@ -65,13 +65,12 @@ var time = document.querySelector(".timer");
 var secondsLeft = 60;
 var currentQ = 0;
 var quizFooter = document.querySelector(".quiz-footer");
-var questProgress = document.querySelector(".quest-progress");
+// var questProgress = document.querySelector(".quest-progress");
 var quiz = document.querySelector(".quiz");
 var resultCard = document.querySelector(".result-card");
 var results = document.querySelector(".results");
 var endQuizBtns = document.querySelector(".footer-btns");
-var redoBtn = document.querySelector(".redo-btn");
-var quitBtn = document.querySelector(".quit-btn");
+var restartBtn = document.querySelector(".redo-btn");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
@@ -100,7 +99,7 @@ function showQuestion() {
 }
 
 var feedback = document.getElementById("result-feedback");
-var scorePoints = 25;
+var scorePoints = 100; // user score
 
 function answerQuestion(event) {
   // console.log("yo, I got clicked");
@@ -121,6 +120,7 @@ function answerQuestion(event) {
     console.log("wrong");
     //time goes down
     secondsLeft -= 10;
+    scorePoints -= 20;
     feedback.textContent = "incorrect!";
     feedback.style.color = "red";
 
@@ -150,9 +150,24 @@ function setTime() {
     }
   }, 1000);
 }
+// COULD NOT GET THIS WORKING
+// function questCounter(index) {
+//   const bottomQuestCounter = quizFooter.querySelector(".quest-progress");
+//   let totalQuestCount =
+//     "<span><p>" + index + "</p>of<p>" + quizElements.length + "</p></span>";
+//   bottomQuestCounter.innerHTML = totalQuestCount;
+// }
 
 function showResults() {
-  quizCard.style.display = "none";
-  resultCard.style.display = "flex";
-  results.style.display = "block";
+  quizCard.style.display = "none"; // hide the quiz at the end
+  resultCard.style.display = "block"; // show the results box at end of quiz
+  results.style.display = "block"; // show results
+  console.log(scorePoints + "%");
+  // created variable for total score% and added it to the html in the results card.
+  let endResults = scorePoints + "%";
+  results.innerHTML = endResults;
+  // replay quiz button functionality
+  restartBtn.onclick = () => {
+    window.location.reload();
+  };
 }
