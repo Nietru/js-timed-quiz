@@ -71,6 +71,7 @@ var resultCard = document.querySelector(".result-card");
 var results = document.querySelector(".results");
 var endQuizBtns = document.querySelector(".footer-btns");
 var restartBtn = document.querySelector(".redo-btn");
+var submitBtn = document.querySelector(".submit-score-btn");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
@@ -102,8 +103,6 @@ var feedback = document.getElementById("result-feedback");
 var scorePoints = 100; // user score
 
 function answerQuestion(event) {
-  // console.log("yo, I got clicked");
-  // console.log(event.target);
   // the .target.textContent will let you know what has been clicked by the user, then we can compare it to the correct answer.
   var userChoice = event.target.textContent;
   if (userChoice == quizElements[currentQ].answer) {
@@ -141,7 +140,7 @@ function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft + " seconds remaining!";
-    // reinforces line 127 so that if we run out of time OR || questions, the quiz is over.
+    //  if we run out of time OR || questions, the quiz is over.
     if (secondsLeft <= 0 || currentQ >= quizElements.length) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
@@ -150,13 +149,6 @@ function setTime() {
     }
   }, 1000);
 }
-// COULD NOT GET THIS WORKING
-// function questCounter(index) {
-//   const bottomQuestCounter = quizFooter.querySelector(".quest-progress");
-//   let totalQuestCount =
-//     "<span><p>" + index + "</p>of<p>" + quizElements.length + "</p></span>";
-//   bottomQuestCounter.innerHTML = totalQuestCount;
-// }
 
 function showResults() {
   quizCard.style.display = "none"; // hide the quiz at the end
@@ -170,4 +162,19 @@ function showResults() {
   restartBtn.onclick = () => {
     window.location.reload();
   };
+
+  // ATTEMPTING LOCAL STORAGE:
+  submitBtn.onclick = () => {
+    var initials = prompt("Please Enter Your Initials: ");
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var score = {
+      score: endResults,
+      initials: initials,
+    };
+    highScores.push(score);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log(highScores);
+  };
 }
+score.score;
+score.initial;
