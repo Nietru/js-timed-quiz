@@ -176,5 +176,7 @@ function showResults() {
     console.log(highScores);
   };
 }
-score.score;
-score.initial;
+
+// will need to append these to the dom element:
+// score.score;
+// score.initial;
