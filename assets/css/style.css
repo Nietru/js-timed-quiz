@@ -39,13 +39,6 @@ button:hover {
   background: #9de0f3;
 }
 
-button.high-scores {
-  float: left;
-  position: relative;
-  margin: 10px;
-  padding: 6px;
-}
-
 button.start-btn {
   position: relative;
   font-size: larger;
@@ -92,4 +85,30 @@ h3 {
   font-size: larger;
   padding: 10px;
   margin: 10px;
+}
+
+#container {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--actfont);
+}
+
+#container h1 {
+  font-size: 25px;
+  padding: 5px;
+  color: var(--actionbtn);
+  text-decoration: underline;
+}
+
+#container p {
+  padding: 5px;
+  font-style: italic;
+}
+
+#container button.redo-btn {
+  position: relative;
+  font-size: larger;
+  margin-top: 5%;
 }

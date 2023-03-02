@@ -65,13 +65,14 @@ var time = document.querySelector(".timer");
 var secondsLeft = 60;
 var currentQ = 0;
 var quizFooter = document.querySelector(".quiz-footer");
-var questProgress = document.querySelector(".quest-progress");
+// var questProgress = document.querySelector(".quest-progress");
 var quiz = document.querySelector(".quiz");
 var resultCard = document.querySelector(".result-card");
 var results = document.querySelector(".results");
 var endQuizBtns = document.querySelector(".footer-btns");
-var redoBtn = document.querySelector(".redo-btn");
-var quitBtn = document.querySelector(".quit-btn");
+var restartBtn = document.querySelector(".redo-btn");
+var submitBtn = document.querySelector(".submit-score-btn");
+var pastHighScores = document.querySelector(".past-high-scores");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
@@ -100,11 +101,9 @@ function showQuestion() {
 }
 
 var feedback = document.getElementById("result-feedback");
-var scorePoints = 25;
+var scorePoints = 100; // user score
 
 function answerQuestion(event) {
-  // console.log("yo, I got clicked");
-  // console.log(event.target);
   // the .target.textContent will let you know what has been clicked by the user, then we can compare it to the correct answer.
   var userChoice = event.target.textContent;
   if (userChoice == quizElements[currentQ].answer) {
@@ -121,6 +120,7 @@ function answerQuestion(event) {
     console.log("wrong");
     //time goes down
     secondsLeft -= 10;
+    scorePoints -= 20;
     feedback.textContent = "incorrect!";
     feedback.style.color = "red";
 
@@ -141,7 +141,7 @@ function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft + " seconds remaining!";
-    // reinforces line 127 so that if we run out of time OR || questions, the quiz is over.
+    //  if we run out of time OR || questions, the quiz is over.
     if (secondsLeft <= 0 || currentQ >= quizElements.length) {
       // stops execution of action at set interval
       clearInterval(timerInterval);
@@ -152,7 +152,37 @@ function setTime() {
 }
 
 function showResults() {
-  quizCard.style.display = "none";
-  resultCard.style.display = "flex";
-  results.style.display = "block";
+  quizCard.style.display = "none"; // hide the quiz at the end
+  resultCard.style.display = "block"; // show the results box at end of quiz
+  results.style.display = "block"; // show results
+  console.log(scorePoints + "%");
+  // created variable for total score% and added it to the html in the results card.
+  let endResults = scorePoints + "%";
+  results.innerHTML = endResults;
+  // replay quiz button functionality
+  restartBtn.onclick = () => {
+    window.location.reload();
+  };
+
+  // ATTEMPTING LOCAL STORAGE:
+  submitBtn.onclick = () => {
+    var initials = prompt("Please Enter Your Initials: ");
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var score = {
+      score: endResults,
+      initials: initials,
+    };
+    // add new score and initials to the highScores array with push()
+    highScores.push(score);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log(highScores);
+    // .replace will show the highscores.html, just created for showing scoreboard.
+    location.replace("/highscores.html");
+    submitBtn.style.display = "none";
+  };
 }
+
+// will need to append these to the dom element -> (pastHighScores div):
+// score.score;
+// score.initial;
+// for loop to go through each array item in local storage.
