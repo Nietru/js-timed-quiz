@@ -72,6 +72,7 @@ var results = document.querySelector(".results");
 var endQuizBtns = document.querySelector(".footer-btns");
 var restartBtn = document.querySelector(".redo-btn");
 var submitBtn = document.querySelector(".submit-score-btn");
+var pastHighScores = document.querySelector(".past-high-scores");
 
 startBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
@@ -171,12 +172,17 @@ function showResults() {
       score: endResults,
       initials: initials,
     };
+    // add new score and initials to the highScores array with push()
     highScores.push(score);
     localStorage.setItem("highScores", JSON.stringify(highScores));
     console.log(highScores);
+    // .replace will show the highscores.html, just created for showing scoreboard.
+    location.replace("/highscores.html");
+    submitBtn.style.display = "none";
   };
 }
 
-// will need to append these to the dom element:
+// will need to append these to the dom element -> (pastHighScores div):
 // score.score;
 // score.initial;
+// for loop to go through each array item in local storage.
