@@ -177,7 +177,7 @@ function showResults() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
     console.log(highScores);
     // .replace will show the highscores.html, just created for showing scoreboard.
-    location.replace("../../highscores.html");
+    location.replace("../highscores.html");
     submitBtn.style.display = "none";
   };
 }
