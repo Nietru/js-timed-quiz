@@ -14,7 +14,7 @@ function renderScores() {
 redoBtn.addEventListener("click", startQuiz); // googled this, not totally sure whats happening here but it works.
 
 function startQuiz() {
-  location.replace("/index.html");
+  location.replace("/js-timed-quiz/index.html");
 }
 
 renderScores();
